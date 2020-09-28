@@ -77,17 +77,17 @@ class DemoKeyboardActionHandlerBase: StandardKeyboardActionHandler {
     func copyImage(_ image: UIImage) {
         guard let input = inputViewController else { return }
 //        ユーザーがキーボードの許可をしていない場合、フルアクセスの設定をしてもらうように誘導
-        guard input.hasFullAccess else { return alert("You must enable full access to copy images.") }
-        guard image.copyToPasteboard() else { return alert("The image could not be copied.") }
+        guard input.hasFullAccess else { return alert("画像をコピーするにはアクセス権限を与えてください") }
+        guard image.copyToPasteboard() else { return alert("この画像はコピーできませんでした") }
 //        画像タップ時に表示
-        alert("Copied to pasteboard!")
+        alert("画像をコピーしました!")
     }
     
 //    画像を長押し時に画像を保存する
 //    保存するアクセス権限がない場合は権限を求める
     func saveImage(_ image: UIImage) {
         guard let input = inputViewController else { return }
-        guard input.hasFullAccess else { return alert("You must enable full access to save images.") }
+        guard input.hasFullAccess else { return alert("キーボードにアクセス権限を与えてください") }
         let saveCompletion = #selector(handleImage(_:didFinishSavingWithError:contextInfo:))
         image.saveToPhotos(completionTarget: self, completionSelector: saveCompletion)
     }
@@ -96,7 +96,7 @@ class DemoKeyboardActionHandlerBase: StandardKeyboardActionHandler {
     // MARK: - Image Functions
 //    長押しで画像を保存した際の表示
     @objc func handleImage(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if error == nil { alert("Saved!") }
-        else { alert("Failed!") }
+        if error == nil { alert("保存完了!") }
+        else { alert("エラ-!") }
     }
 }
