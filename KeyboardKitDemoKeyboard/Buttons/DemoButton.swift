@@ -85,6 +85,8 @@ private extension KeyboardAction {
         }
     }
     
+    
+//    最初の画面から絵文字ボタンを押した時に表示される画面の絵文字たち
     func buttonText(for category: EmojiCategory) -> String {
         switch category {
         case .frequent: return "🕓"

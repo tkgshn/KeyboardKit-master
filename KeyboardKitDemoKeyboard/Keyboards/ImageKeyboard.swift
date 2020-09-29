@@ -28,7 +28,7 @@ struct ImageKeyboard: DemoKeyboard, DemoImageKeyboard {
         let isLandscape = viewController.deviceOrientation.isLandscape
         let rowsPerPage = isLandscape ? 3 : 4
         let buttonsPerRow = isLandscape ? 8 : 6
-        gridConfig = KeyboardButtonRowCollectionView.Configuration(rowHeight: 50, rowsPerPage: rowsPerPage, buttonsPerRow: buttonsPerRow)
+        gridConfig = KeyboardButtonRowCollectionView.Configuration(rowHeight: 30, rowsPerPage: rowsPerPage, buttonsPerRow: buttonsPerRow)
     }
     
     let bottomActions: KeyboardActionRow

@@ -44,6 +44,8 @@ private extension Collection where Element == KeyboardAction {
     var withoutImageActions: [KeyboardAction] {
         self.filter { $0 != .keyboardType(.emojis) }
             .filter { $0 != .keyboardType(.images) }
+//            これを追加して動作確認してみる
+            .filter { $0 != .keyboardType(.numeric) }
     }
 }
 
